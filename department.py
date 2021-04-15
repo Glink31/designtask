@@ -21,3 +21,8 @@ class Department():
     def notify(self):
         if self.nextdepartment is not None:
             self.nextdepartment.gettasks(Task(self.nextdepartment.name))
+    def completetask(self):
+        if self.boss is not None:
+            self.boss.assigntasks()
+            for i in range(len(self.employees)):
+                self.employees[i].completetask()
